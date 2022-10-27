@@ -1,0 +1,8 @@
+{
+    "manifest_version": 3,
+    "name": "Battery Life Saver",
+    "version": "1",
+    "description": "This extension reminds you about charge & discharge cycles",
+    "background": {"service_worker": "background.js"},
+    "permissions": ["nativeMessaging", "storage", "scripting", "tabs"]
+}
