@@ -36,9 +36,11 @@ function drawChart() {
 
 var batterySupported = document.getElementById("battery-supported"),
     batteryLevel = document.getElementById("battery-level"),
-    chargingStatus = document.getElementById("charging-status"),
+    chargingStatus = document.getElementById("charging-status")
+    
     batteryCharged = document.getElementById("battery-charged"),
-    batteryDischarged = document.getElementById("battery-discharged");
+    batteryDischarged = document.getElementById("battery-discharged")
+;
 
 
 var prevchar = 0,
@@ -47,14 +49,14 @@ var atchar = 0,
     endchar = 0,
     charsat = 0;
 var strem, stplg, siinc;
-var success = function (battery) {
+var success = function(battery) {
     if (battery) {
         function setStatus() {
             console.log("status Updated");
             batteryLevel.innerHTML = Math.round(battery.level * 100) + "%";
             chargingStatus.innerHTML = (battery.charging) ? "" : "not ";
-            batteryCharged.innerHTML = (battery.chargingTime == "Infinity") ? "Infinity" : parseInt(battery.chargingTime / 60, 10);
-            batteryDischarged.innerHTML = (battery.dischargingTime == "Infinity") ? "Infinity" : parseInt(battery.dischargingTime / 60, 10);
+            /*batteryCharged.innerHTML = (battery.chargingTime == "Infinity") ? "Infinity" : parseInt(battery.chargingTime / 60, 10);
+            batteryDischarged.innerHTML = (battery.dischargingTime == "Infinity") ? "Infinity" : parseInt(battery.dischargingTime / 60, 10);*/
 
             temp = new Date();
             time = temp.toLocaleTimeString();
@@ -106,7 +108,7 @@ var success = function (battery) {
             }
         }
 
-        var audioCtx = new (window.AudioContext || window.webkitAudioContext || window.audioContext);
+        var audioCtx = new(window.AudioContext || window.webkitAudioContext || window.audioContext);
 
 
         function beep(duration, frequency, volume, type, callback) {
@@ -137,21 +139,21 @@ var success = function (battery) {
             if (battery.charging) {
                 beep(250, 200, 1);
                 setTimeout(altremv, 400);
-            } else { }
+            } else {}
         }
 
         function altplug() {
             if (!(battery.charging)) {
                 beep(1000, 440, 1);
                 setTimeout(altplug, 2000);
-            } else { }
+            } else {}
         }
 
         function altpara() {
             if (!(battery.charging)) {
                 beep(100, 700, 1);
                 setTimeout(altplug, 180);
-            } else { }
+            } else {}
         }
         satcha();
         setTimeout(checkupdown, 5000);
@@ -169,7 +171,7 @@ var success = function (battery) {
 
 };
 
-var noGood = function (error) {
+var noGood = function(error) {
     batterySupported.innerHTML = error.message;
 };
 var s = 0;
